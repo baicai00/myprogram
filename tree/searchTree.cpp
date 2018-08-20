@@ -36,13 +36,13 @@ void CBinarySearchTree::inorder_tree_walk(TKey*& pOut, int& nLen)
 
 bool CBinarySearchTree::insertNode(TKey key)
 {
-    STSearchTreeNode pNode* = createNode(key);
+    STSearchTreeNode* pNode = createNode(key);
     if (NULL == pNode)
     {
         return false;
     }
 
-    return insertNode(pNode);
+    return insert(pNode);
 }
 
 void CBinarySearchTree::deleteNode(TKey key)
@@ -54,20 +54,33 @@ void CBinarySearchTree::deleteNode(TKey key)
     {
         return;
     }
-    // 将要删除的节点
-    STSearchTreeNode* y = NULL;
-    if (NULL == x->left || NULL == x->right)
+    
+    if (x->left == NULL)
     {
-        y = x;
+        // x无左结点，则用x的右节点替代x
+        transplant(x, x->right);
+    }
+    else if (x->right == NULL)
+    {
+        // x无右结点，则用x的左节点替代x
+        transplant(x, x->left);
     }
     else
     {
-        y = treeSuccessor(key);
+        // x拥有左、右节点
+        STSearchTreeNode* y = treeSuccessor(key); // 寻找x的后继节点
+        if (y->parent != x)
+        {
+            // x的后继节点不是x的右儿子的情况
+            // 先用y的右儿子替代y，因为后继节点无左儿子
+            transplant(y, y->right);
+            y->right = x->right;
+            y->right->parent = y;
+        }
+        transplant(x, y);
+        y->left = x->left;
+        y->left->parent = y;
     }
-
-    // 若x只有一个子节点y，则删除x,使用y替代x
-    // 若x存在两个子节点，则找到x的后继节点y，使用y替代x，然后转换成删除y
-
 }
 
 bool CBinarySearchTree::minKey(TKey& key)
@@ -250,4 +263,25 @@ void CBinarySearchTree::inorder_tree_walk(STSearchTreeNode* pNode, TKey* pOut, i
     pOut[nPos++] = pNode->key;
     inorder_tree_walk(pNode->left, pOut, nPos);
     inorder_tree_walk(pNode->right, pOut, nPos);
+}
+
+void CBinarySearchTree::transplant(STSearchTreeNode* u, STSearchTreeNode* v)
+{
+    if (u->parent == NULL)
+    {
+        m_pRoot = v;
+    }
+    else if (u == u->parent->left)
+    {
+        u->parent->left = v;
+    }
+    else
+    {
+        u->parent->right = v;
+    }
+
+    if (v != NULL)
+    {
+        v->parent = u->parent;
+    }
 }

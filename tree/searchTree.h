@@ -15,20 +15,6 @@ typedef struct tagSearchTreeNode
     STSearchTreeNode    *parent;
     STSearchTreeNode    *left;
     STSearchTreeNode    *right;
-
-    ~STSearchTreeNode()
-    {
-        if (left)
-        {
-            delete left;
-            left = NULL;
-        }
-        if (right)
-        {
-            delete right;
-            right = NULL;
-        }
-    }
 } STSearchTreeNode;
 
 // 二叉搜索树
@@ -67,6 +53,9 @@ private:
     bool insert(STSearchTreeNode* pNode);
 
     void inorder_tree_walk(STSearchTreeNode* pNode, TKey* pOut, int& nPos);
+
+    // 用一棵以v为根的子树来替换一棵以u为根的子树
+    void transplant(STSearchTreeNode* u, STSearchTreeNode* v);
 
 private:
     STSearchTreeNode*       m_pRoot;
