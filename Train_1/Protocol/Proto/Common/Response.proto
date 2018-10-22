@@ -1,0 +1,7 @@
+package pb;
+
+//////////////////////////// 回复结果结构体 //////////////////////////////////////
+message ResBase {
+    optional int32 Result = 1;      // 回复码
+    optional string Desc = 2;       // 对应描述
+}

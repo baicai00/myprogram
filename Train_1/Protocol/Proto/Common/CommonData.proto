@@ -1,0 +1,7 @@
+package pb;
+
+//学生数据
+message BaseData {
+    optional uint32 UserID = 1;     // 学生ID
+    optional string Name = 2;       // 学生姓名
+}

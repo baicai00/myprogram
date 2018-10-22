@@ -1,0 +1,20 @@
+import "CSCMD.proto"
+import "CSGame.proto"
+
+package pb;
+
+//CS交互协议头定义
+message CSHead {
+    optional pb.CSCMDType CMD = 1;
+    optional uint32 UserID = 2;
+    optional uint32 Seq = 3;
+}
+
+//CS交互协议定义
+message CSData {
+    optional pb.CSHead CSHead = 1;
+    optional pb.SetDataReq SetDataReq = 2;
+    optional pb.SetDataRes SetDataRes = 3;
+    optional pb.GetDataReq GetDataReq = 4;
+    optional pb.GetDataRes GetDataRes = 5;
+}

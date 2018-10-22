@@ -1,0 +1,27 @@
+import "CommonData.proto"
+import "Response.proto"
+
+package pb;
+
+//////////////////////////// 设置学生信息 //////////////////////////////////////
+// CS_CMD_SET_DATA_REQ
+message SetDataReq {
+    optional pb.BaseData BaseData = 1;
+}
+
+// CS_CMD_SET_DATA_RES
+message SetDataRes {
+    optional pb.ResBase ResBase = 1;
+}
+
+//////////////////////////// 获取学生信息 //////////////////////////////////////
+// CS_CMD_GET_DATA_REQ
+messag GetDataReq {
+    optional uint32 UserID = 1;
+}
+
+// CS_CMD_GET_DATA_RES
+messag GetDataRes {
+    optional pb.ResBase ResBase = 1;
+    optional pb.BaseData BaseData = 2;
+}

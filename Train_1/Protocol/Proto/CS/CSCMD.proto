@@ -1,0 +1,11 @@
+package pb;
+
+enum CSCMDType {
+    CS_CMD_UNDEFINE = 0;
+
+    CS_CMD_SET_DATA_REQ = 30001;            // 设置学生信息请求
+    CS_CMD_SET_DATA_RES = 40001;            // 设置学生信息回复
+
+    CS_CMD_GET_DATA_REQ = 30002;            // 获取学生信息请求
+    CS_CMD_GET_DATA_REQ = 40002;            // 获取学生信息回复
+}

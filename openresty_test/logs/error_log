@@ -1,0 +1,52 @@
+2018/09/27 15:19:14 [notice] 38193#0: using the "epoll" event method
+2018/09/27 15:19:14 [notice] 38193#0: openresty/1.11.2.2
+2018/09/27 15:19:14 [notice] 38193#0: built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) 
+2018/09/27 15:19:14 [notice] 38193#0: OS: Linux 4.2.0-27-generic
+2018/09/27 15:19:14 [notice] 38193#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2018/09/27 15:19:14 [notice] 38194#0: start worker processes
+2018/09/27 15:19:14 [notice] 38194#0: start worker process 38195
+2018/09/27 15:20:45 [notice] 38194#0: signal 15 (SIGTERM) received, exiting
+2018/09/27 15:20:45 [notice] 38195#0: exiting
+2018/09/27 15:20:45 [notice] 38195#0: exit
+2018/09/27 15:20:45 [notice] 38194#0: signal 17 (SIGCHLD) received
+2018/09/27 15:20:45 [notice] 38194#0: worker process 38195 exited with code 0
+2018/09/27 15:20:45 [notice] 38194#0: exit
+2018/09/27 15:24:28 [notice] 38273#0: using the "epoll" event method
+2018/09/27 15:24:28 [notice] 38273#0: openresty/1.11.2.2
+2018/09/27 15:24:28 [notice] 38273#0: built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) 
+2018/09/27 15:24:28 [notice] 38273#0: OS: Linux 4.2.0-27-generic
+2018/09/27 15:24:28 [notice] 38273#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2018/09/27 15:24:28 [notice] 38274#0: start worker processes
+2018/09/27 15:24:28 [notice] 38274#0: start worker process 38275
+2018/09/27 15:24:44 [notice] 38274#0: signal 15 (SIGTERM) received, exiting
+2018/09/27 15:24:44 [notice] 38275#0: exiting
+2018/09/27 15:24:44 [notice] 38275#0: exit
+2018/09/27 15:24:44 [notice] 38274#0: signal 17 (SIGCHLD) received
+2018/09/27 15:24:44 [notice] 38274#0: worker process 38275 exited with code 0
+2018/09/27 15:24:44 [notice] 38274#0: exit
+2018/10/19 17:02:02 [notice] 39942#0: using the "epoll" event method
+2018/10/19 17:02:02 [notice] 39942#0: openresty/1.11.2.2
+2018/10/19 17:02:02 [notice] 39942#0: built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) 
+2018/10/19 17:02:02 [notice] 39942#0: OS: Linux 4.2.0-27-generic
+2018/10/19 17:02:02 [notice] 39942#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2018/10/19 17:02:02 [notice] 39943#0: start worker processes
+2018/10/19 17:02:02 [notice] 39943#0: start worker process 39944
+2018/10/19 17:02:15 [notice] 39943#0: signal 15 (SIGTERM) received, exiting
+2018/10/19 17:02:15 [notice] 39944#0: exiting
+2018/10/19 17:02:15 [notice] 39944#0: exit
+2018/10/19 17:02:15 [notice] 39943#0: signal 17 (SIGCHLD) received
+2018/10/19 17:02:15 [notice] 39943#0: worker process 39944 exited with code 0
+2018/10/19 17:02:15 [notice] 39943#0: exit
+2018/10/19 18:02:16 [notice] 62827#0: using the "epoll" event method
+2018/10/19 18:02:16 [notice] 62827#0: openresty/1.11.2.2
+2018/10/19 18:02:16 [notice] 62827#0: built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) 
+2018/10/19 18:02:16 [notice] 62827#0: OS: Linux 4.2.0-27-generic
+2018/10/19 18:02:16 [notice] 62827#0: getrlimit(RLIMIT_NOFILE): 1024:4096
+2018/10/19 18:02:16 [notice] 62828#0: start worker processes
+2018/10/19 18:02:16 [notice] 62828#0: start worker process 62829
+2018/10/19 18:02:30 [notice] 62828#0: signal 15 (SIGTERM) received, exiting
+2018/10/19 18:02:30 [notice] 62829#0: exiting
+2018/10/19 18:02:30 [notice] 62829#0: exit
+2018/10/19 18:02:30 [notice] 62828#0: signal 17 (SIGCHLD) received
+2018/10/19 18:02:30 [notice] 62828#0: worker process 62829 exited with code 0
+2018/10/19 18:02:30 [notice] 62828#0: exit
