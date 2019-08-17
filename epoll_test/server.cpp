@@ -13,7 +13,7 @@
 using namespace std;
 
 #define LISTENQ 20
-#define MAXLINE 5
+#define MAXLINE 250
 
 void setnonblocking(int sock)
 {
@@ -45,6 +45,10 @@ int main(int argc, char* argv[])
     socklen_t clilen;
     char line[MAXLINE] = {0};
     int listenfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (listenfd == -1) {
+        perror("create socket failed");
+        exit(-1);
+    }
 
     // 把socket设置为非阻塞方式
     //setnonblocking(listenfd);
@@ -58,14 +62,20 @@ int main(int argc, char* argv[])
     epoll_ctl(epfd, EPOLL_CTL_ADD, listenfd, &ev);
     bzero(&serveraddr, sizeof(serveraddr));
     serveraddr.sin_family = AF_INET;
-    char* local_addr = "127.0.0.1";
-    inet_aton(local_addr, &(serveraddr.sin_addr));
+    //const char* local_addr = "192.168.161.129";
+    //inet_aton(local_addr, &(serveraddr.sin_addr));
+    serveraddr.sin_addr.s_addr = inet_addr("192.168.161.129");
     serveraddr.sin_port = htons(portnumber);
-    bind(listenfd, (sockaddr*)&serveraddr, sizeof(serveraddr));
-    listen(listenfd, LISTENQ);
+    if (bind(listenfd, (sockaddr*)&serveraddr, sizeof(serveraddr)) == -1) {
+        perror("bind failed");
+        exit(-1);
+    }
+    if (listen(listenfd, LISTENQ) == -1) {
+        perror("listen failed");
+        exit(-1);
+    }
 
-    for (;;)
-    {
+    for (;;) {
         // 等待epoll事件的发生
         int nfds = epoll_wait(epfd, events, 20, -1);
         cout << "wake up: " << nfds << endl;
@@ -75,7 +85,8 @@ int main(int argc, char* argv[])
         {
             if (events[i].data.fd == listenfd) // 如果新监测到一个SOCKET用户连接到了绑定的SOCKET端口，建立新的连接
             {
-                int connfd = accept(listenfd, (sockaddr*)&clientaddr, &clilen);
+                //int connfd = accept(listenfd, (sockaddr*)&clientaddr, &clilen);
+                int connfd = accept(listenfd, NULL, NULL);
                 if (connfd < 0)
                 {
                     perror("connfd < 0");
@@ -83,8 +94,8 @@ int main(int argc, char* argv[])
                     exit(-1);
                 }
 
-                char* str = inet_ntoa(clientaddr.sin_addr);
-                cout << "accept a connection from " << str << endl;
+                //char* str = inet_ntoa(clientaddr.sin_addr);
+                //cout << "accept a connection from " << str << endl;
 
                 // 设置用于读操作的文件描述符
                 ev.data.fd = connfd;
