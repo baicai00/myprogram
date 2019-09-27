@@ -1,0 +1,2 @@
+lua_test用于学习lua
+/usr/local/bin/目录下创建了软连接指向~/opensource/lua-5.3.5/src/lua
