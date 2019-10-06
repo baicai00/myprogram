@@ -5,6 +5,8 @@ CC=gcc
 APP_SRC=$(wildcard *.c)
 APP_INC=-I./
 APP_OBJ=$(APP_SRC:.C=.O)
+APP_LIB=-L/usr/local/lib \
+		-llua -lm -ldl
 
 %d: %c
 	$(CC) -MM $(CFLAGS) $(APP_INC) $< -o $@
@@ -13,7 +15,7 @@ APP_OBJ=$(APP_SRC:.C=.O)
 	$(CC) -c $(CFLAGS) $(APP_INC) $< -o $@
 
 $(TARGET): $(APP_OBJ)
-	$(CC) -o $@ $(CFLAGS) $(APP_OBJ)
+	$(CC) -o $@ $(CFLAGS) $(APP_OBJ) $(APP_LIB)
 
 clean:
 	rm -rf *.o
