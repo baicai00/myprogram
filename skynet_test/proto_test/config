@@ -1,0 +1,19 @@
+root = "./"
+skynet_root = "/home/kk/skynet/"
+luaservice = skynet_root .. "service/?.lua;" .. root .. "lua/?.lua"
+lua_path = skynet_root.."lualib/?.lua;"..root.."lualib/?.lua;"..root.."lualib/?/init.lua"
+
+-- 将添加到 package.cpath 中的路径，供 require 调用
+lua_cpath = skynet_root.."luaclib/?.so;"..root.."luaclib/?.so"
+-- cpath表示用C编写的服务模块的位置
+cpath = skynet_root .. "cservice/?.so"
+
+lualoader = skynet_root.."lualib/loader.lua"
+
+thread = 2
+logger = nil
+logpath = "."
+harbor=0
+
+start="main"
+bootstrap = "snlua bootstrap"
