@@ -1,0 +1,7 @@
+SERVER_ROOT ?= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+SKYNET_ROOT = ${SERVER_ROOT}/skynet/
+
+CFLAGS += -fPIC -Wall -g -O0
+CXXFLAGS += -fPIC -Wall -g -O0 -fdiagnostics-color=auto -std=c++11
+
+INC += -I$(SKYNET_ROOT)skynet-src/
