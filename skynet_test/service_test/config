@@ -22,3 +22,5 @@ cpath = skynet_root.."cservice/?.so;".."./service/?.so;"
 
 start = "main"	-- main script
 lualoader = skynet_root.."lualib/loader.lua"
+
+max_online = 8000 --max connection

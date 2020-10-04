@@ -21,7 +21,7 @@ void Watchdog::watchdog_poll(const char* data, uint32_t size, uint32_t source, i
         char* c = (char*)data;
         int fd = atoi(strsep(&c, " "));
         //LOG(INFO) << "PTYPE_CLIENT fd = " << fd;
-        printf("watchdog_poll fd=%d", fd);
+        printf("watchdog_poll fd=%d\n", fd);
         break;
     }
     case PTYPE_RESPONSE:
