@@ -1,5 +1,5 @@
-root = "/root/mytest/test_skynet/testmongo/"
-skynet_path = "/root/mytest/test_skynet/skynet/"
+include "../config.rule"
+root = "/root/myprogram/skynet_test/testmongo/"
 thread = 8
 logger = nil
 harbor = 0

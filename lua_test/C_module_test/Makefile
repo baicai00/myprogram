@@ -1,4 +1,4 @@
-TARGET=skynet.so
+TARGET=module.so
 CFLAGS=-g -O0 -shared -fPIC
 CC=gcc
 

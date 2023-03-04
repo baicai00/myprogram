@@ -11,8 +11,9 @@ static int module_add(lua_State *L)
 
 	double ret = arg1 + arg2;
 	lua_pushnumber(L, ret);
+    lua_pushstring(L, "hello world");
 
-	return 1;
+	return 2;
 }
 
 static int module_sub(lua_State *L)
@@ -26,7 +27,7 @@ static int module_sub(lua_State *L)
 	return 1;
 }
 
-LUA_API int luaopen_skynet_core_aa(lua_State *L)
+LUA_API int luaopen_module_core_aa(lua_State *L)
 {
 	luaL_Reg l[] = {
 		{ "madd", module_add },

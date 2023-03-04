@@ -3,8 +3,14 @@ version: "3.7"
 services:
   mongo:
     image: mongo:6.0
+    container_name: test-mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: "test"
       MONGO_INITDB_ROOT_PASSWORD: "123"
     ports:
       - 27017:27017
+    # volumes:
+    #   - "./data/configdb:/data/configdb"
+    #   - "./data/db:/data/db"
+    command: mongod --auth
+    tty: true
