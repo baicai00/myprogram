@@ -129,6 +129,45 @@ local function test_aggregate(client)
     print(tostring(ret))
 end
 
+local function test_cursor(client)
+    local db = client["record"]
+
+    db.testcoll:delete({}, false)
+
+    db.testcoll:insert({uid = 931, room_sub_type = 20, profit = 1000})
+    db.testcoll:insert({uid = 937, room_sub_type = 21, profit = 6000})
+    db.testcoll:insert({uid = 937, room_sub_type = 21, profit = 3000})
+    db.testcoll:insert({uid = 937, room_sub_type = 21, profit = 8000})
+    db.testcoll:insert({uid = 934, room_sub_type = 21, profit = 2000})
+    db.testcoll:insert({uid = 938, room_sub_type = 23, profit = 5000})
+    db.testcoll:insert({uid = 939, room_sub_type = 20, profit = 3000})
+    db.testcoll:insert({uid = 930, room_sub_type = 21, profit = 4000})
+
+    -- 生成游标对象
+    local cursor = db.testcoll:find({}, {})
+
+    -- 对结果设置排序规则
+    -- cursor:sort({uid = 1}, {profit = -1})
+
+    -- 跳过指定数量的文档
+    -- cursor:skip(3)
+
+    -- 对返回的文档数量作限制
+    -- cursor:limit(3)
+
+    -- 查询数据
+    while cursor:hasNext() do
+        local doc = cursor:next()
+        print("uid:", doc["uid"], "profit:", doc["profit"])
+    end
+
+    -- 获取满足条件的文档数量
+    -- print(cursor:count())
+
+    -- 关闭游标
+    cursor:close()
+end
+
 skynet.start(function ()
     local client = create_client()
     -- test_insert_without_index(client)
@@ -140,4 +179,5 @@ skynet.start(function ()
     -- test_find(client)
 
     -- test_aggregate(client)
+    -- test_cursor(client)
 end)
