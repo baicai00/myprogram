@@ -1,0 +1,26 @@
+proj_root = "/home/kk/myprogram/skynet_test/"
+--skynet_root = proj_root .. "skynet/"
+skynet_root = "/home/kk/skynet/"
+lua_root = proj_root .. "service_test/lua/"
+
+root = "./"
+thread = 8
+logger = nil
+harbor = 1
+address = "127.0.0.1:2526"
+master = "127.0.0.1:2013"
+bootstrap = "snlua bootstrap"	-- The service for bootstrap
+standalone = "0.0.0.0:2013"
+
+lua_path = skynet_root.."service/?.lua;"..skynet_root .. "lualib/?.lua;" .. skynet_root .. "lualib/?/?.lua;"..lua_root.."?.lua;"
+
+lua_cpath = skynet_root.."luaclib/?.so;"
+
+luaservice = skynet_root.."service/?.lua;"..skynet_root .. "lualib/?.lua;" .. skynet_root .. "lualib/?/?.lua;"..lua_root.."?.lua;"
+
+cpath = skynet_root.."cservice/?.so;".."./service/?.so;"
+
+start = "main"	-- main script
+lualoader = skynet_root.."lualib/loader.lua"
+
+max_online = 8000 --max connection

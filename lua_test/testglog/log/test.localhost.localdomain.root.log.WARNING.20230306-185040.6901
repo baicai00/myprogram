@@ -1,0 +1,6 @@
+Log file created at: 2023/03/06 18:50:40
+Running on machine: localhost.localdomain
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0306 18:50:40.983848  6901 log.cpp:83] test 1111 
+ room_sub_type [10]
+ uid [1]

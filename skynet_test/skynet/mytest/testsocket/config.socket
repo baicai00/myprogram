@@ -1,0 +1,16 @@
+include "../config.rule"
+root = "/root/myprogram/skynet_test/testsocket/"
+thread = 8
+logger = nil
+harbor = 0
+start = "testsocket"	-- main script
+bootstrap = "snlua bootstrap"	-- The service for bootstrap
+lualoader = "lualib/loader.lua"
+
+lua_path = skynet_path .. "lualib/?.lua;"
+lua_cpath = skynet_path .. "luaclib/?.so;"
+
+luaservice = skynet_path .. "service/?.lua;" .. root .. "?.lua"
+cpath = skynet_path .. "cservice/?.so;" .. skynet_path .. "luaclib/?.so;" .. root .. "?.so"
+
+-- daemon = "./skynet.pid"

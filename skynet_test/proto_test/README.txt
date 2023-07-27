@@ -1,1 +1,0 @@
-该demo只是简单的使用pbc工具对protobuf进行encode与decode

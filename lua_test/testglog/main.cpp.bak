@@ -1,0 +1,15 @@
+#include <glog/logging.h>
+
+int main()
+{
+    const char* dir = "./log";
+    const char* name = "test";
+    int logbufsecs = 1;
+    FLAGS_log_dir = dir;
+    FLAGS_logbufsecs = logbufsecs;
+    FLAGS_max_log_size = 10; // 单位M
+    google::InitGoogleLogging(name);
+
+    LOG(ERROR) << "test=============";
+    return 0;
+}
