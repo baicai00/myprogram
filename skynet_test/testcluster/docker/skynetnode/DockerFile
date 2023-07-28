@@ -1,0 +1,5 @@
+FROM centos:7
+
+RUN yum install -y devtoolset-7-gcc* & echo "source /opt/rh/devtoolset-7/enable" >>/etc/profile & \
+    yum install -y git & \
+    git clone -b v1.6.0 https://github.com/cloudwu/skynet.git && cd skynet && gcc linux
